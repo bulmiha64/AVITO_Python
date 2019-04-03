@@ -10,6 +10,8 @@ class Advert:
                 self.__dict__[key + '_'] = value
             elif (isinstance(value, dict)):
                 self.__dict__[key] = Advert(value)
+                setattr(self.__dict__[key], 'settlement',
+                        settlement(value["address"], 0))
             else:
                 if key == "price" and value < 0:
                     raise ValueError
@@ -31,11 +33,16 @@ class Advert:
         return f'{self.title} | {self.price} ₽'
 
 
+def settlement(address: str, ind: int) -> str:
+    address_spl = address.split(',')
+    return address_spl[ind]
+
+
 def test_advert_dict_empty():
     lesson_str = """{}"""
     lesson = json.loads(lesson_str)
     lesson_ad = Advert(lesson)
-    assert not (bool(lesson_ad.__dict__) and all(lesson_ad.__dict__.values()))
+    assert not lesson_ad.__dict__
 
 
 def test_advert():
@@ -49,10 +56,10 @@ def test_advert():
         }"""
     lesson = json.loads(lesson_str)
     lesson_ad = Advert(lesson)
-    lesson_ad.title
-    lesson_ad.class_
-    lesson_ad.location.address
-    lesson_ad.location.metro_stations
+    assert lesson_ad.title == "python"
+    assert lesson_ad.class_ == "2"
+    assert lesson_ad.location.address == "город Москва, Лесная, 7"
+    assert lesson_ad.location.metro_stations == ["Белорусская"]
 
 
 def test_advert_price_none():
@@ -111,5 +118,4 @@ def test_advert_settlement():
                 }"""
     lesson = json.loads(lesson_str)
     lesson_ad = Advert(lesson)
-    print(vars(lesson_ad))
     assert lesson_ad.location.settlement == "город Москва"
