@@ -28,6 +28,7 @@ def start():
     else:
         deb()
 
+
 def arch():
     a = ask_question('Will you read the install guide?')
     if a == 0:
