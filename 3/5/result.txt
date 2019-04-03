@@ -1,0 +1,32 @@
+pytest --cov --cov=scrapy issue-05.py
+============================= test session starts ==============================
+platform linux -- Python 3.7.3, pytest-4.4.0, py-1.8.0, pluggy-0.9.0
+rootdir: /home/redfox/AVITO_Python/3/5
+plugins: cov-2.6.1
+collected 3 items
+
+issue-05.py ...                                                          [100%]
+
+----------- coverage: platform linux, python 3.7.3-final-0 -----------
+Name          Stmts   Miss  Cover
+---------------------------------
+issue-05.py      38      0   100%
+
+
+=========================== 3 passed in 4.38 seconds ===========================
+
+
+pytest --cov --cov=scrapy --cov-report=html issue-05.py
+============================= test session starts ==============================
+platform linux -- Python 3.7.3, pytest-4.4.0, py-1.8.0, pluggy-0.9.0
+rootdir: /home/redfox/AVITO_Python/3/5
+plugins: cov-2.6.1
+collected 3 items
+
+issue-05.py ...                                                          [100%]
+
+----------- coverage: platform linux, python 3.7.3-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+
+=========================== 3 passed in 7.13 seconds ===========================
