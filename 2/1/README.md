@@ -2,6 +2,6 @@
 
 ## To execute tests use this command
 
-```python
+```bash
 python -m doctest -v -o NORMALIZE_WHITESPACE issue-01.py
 ```
