@@ -1,6 +1,7 @@
 from unittest.mock import patch
 import pytest
 import urllib.request
+import urllib.urlopen
 import json
 
 API_URL = 'http://worldclockapi.com/api/json/utc/now'
